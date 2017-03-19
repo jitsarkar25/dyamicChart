@@ -1,0 +1,13 @@
+body{
+    
+    background-color: #212F3C;
+}
+
+.inputlabel{
+    float:left;
+    margin-top : 10px;
+}
+#chartcontainer
+{
+    margin:20px;
+}
