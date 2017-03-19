@@ -1,20 +1,51 @@
 <html>
 <head>
+    <link rel=stylesheet href="bootstrap/css/bootstrap.min.css"/>
+    <link rel=stylesheet href="css/main.css"/>
     <script type="text/javascript" src="jquery-3.2.0.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="fusioncharts/fusioncharts.js"></script>
     <script type="text/javascript" src="fusioncharts/themes/fusioncharts.theme.fint.js"></script>
     <script type="text/javascript" src="app.js"></script>
     </head>
-    <body>
-        <button id="createdata" onclick="addclick();">Create</button>
-        
-     
-        <select id="typeselect">
+    <body class="container">
+        <center>
+        <h1 style="color:white;"> Dynamic Charts</h1>
+        </center>
+        <div class="row">
+        <div class="col-md-4" >
+       <div id="datainputcontainer"></div>
+             <button id="createdata" class="btn-success btn-large btn inputlabel" >Add Values</button>
+        </div> 
+            
+        <div class="col-md-8">
+      <input type="text" id="caption" placeholder="Chart Caption" class="inputlabel form-control"/>
+        <input type="text" id="subcaption" placeholder="Sub Caption" class="inputlabel form-control"/>
+            <div class="row">
+            <div class="col-md-6">
+                
+                <input type="text" id="xaxis" placeholder="X Axis Name" class="inputlabel form-control"/>
+                </div>
+                <div class="col-md-6">
+                
+                <input type="text" id="yaxis" placeholder="Y Axis Name" class="inputlabel form-control"/>
+                </div>
+            </div>
+              <input type="text" id="numberprefix" placeholder="Number Prefix" class="inputlabel form-control"/>
+            <select class="form-control inputlabel" id="typeselect">
         <option val="column2d">Column</option>
             <option val="bar2d">Bar</option>
             <option val="pie2d">Pie</option>
         </select>
-        <div id="datainputcontainer"></div>
-          <div id="chartContainer">FusionCharts XT will load here!</div>
+            <div class="row">
+            <div class="col-md-12">
+                <div id="chartcontainer">FusionCharts XT will load here!</div>
+                </div>
+            
+            </div>
+            
+        </div>
+        </div>
+          
     </body>
 </html>
