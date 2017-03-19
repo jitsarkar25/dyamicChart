@@ -1,10 +1,20 @@
 <html>
 <head>
+    <script type="text/javascript" src="jquery-3.2.0.js"></script>
+    <script type="text/javascript" src="fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="fusioncharts/themes/fusioncharts.theme.fint.js"></script>
     <script type="text/javascript" src="app.js"></script>
     </head>
     <body>
         <button id="createdata" onclick="addclick();">Create</button>
-        <div id="datainputcontainer"></div>
         
+     
+        <select id="typeselect">
+        <option val="column2d">Column</option>
+            <option val="bar2d">Bar</option>
+            <option val="pie2d">Pie</option>
+        </select>
+        <div id="datainputcontainer"></div>
+          <div id="chartContainer">FusionCharts XT will load here!</div>
     </body>
 </html>
