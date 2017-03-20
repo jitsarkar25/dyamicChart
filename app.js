@@ -1,8 +1,12 @@
 
-
+//count keeps track of the number of values added
 var count = 0;
+
+//the main object creator
 var Dynamicchart =function ()
 {
+    
+    
     this.chartElm="";
     this.data="";
     this.container = document.getElementById("datainputcontainer");
@@ -14,8 +18,11 @@ var Dynamicchart =function ()
     this.yaxis = document.getElementById("yaxis");
     this.numberprefix = document.getElementById("numberprefix");
     this.addValueBtn = document.getElementById("createdata");
+    //labels and values contains the corresponding labels and values 
     this.labels=[];
     this.values=[];
+    
+    //adding the necessary events ti make the chart dynamic
     this.typeselect.addEventListener("change",this.createChart.bind(this));
     this.chartcaption.addEventListener("keyup",this.createJSON.bind(this));
     this.subcaption.addEventListener("keyup",this.createJSON.bind(this));
@@ -27,7 +34,7 @@ var Dynamicchart =function ()
     
 }
 
-
+//creates th dynamic input boxes and asigns its attribues
 Dynamicchart.prototype.createdata = function(){ 
       var that=this;
    // console.log(that);
@@ -50,7 +57,7 @@ Dynamicchart.prototype.createdata = function(){
   inputBoxLabel.className="inputlabel form-control"; 
   inputBoxLabel.addEventListener("keyup",function()
                                   {
-        
+        //the value input box remains disabled untill a label is added
           if(inputBoxLabel.value)
             {
                 inputBoxValue.disabled=false;
@@ -85,6 +92,8 @@ inputBoxValue.addEventListener("keyup",function(){
   
 };
 
+
+//creates th JSON data from the values given by the user
 Dynamicchart.prototype.createJSON=function()
 {
     var that=this;
@@ -99,13 +108,15 @@ Dynamicchart.prototype.createJSON=function()
             that.data.push(dataObj);
         }
     
-    
+  //assigning default values     
   var caption=that.chartcaption.value || "Chart";
   var subcaption=that.subcaption.value;
   var xaxis=that.xaxis.value || "X-AXIS";
   var yaxis=that.yaxis.value || "Y-AXIS";
   var prefix=that.numberprefix.value || "";    
     
+    
+    //the required JSON format for the charts
     that.moredata={
         "chart": {
         "caption": caption,
@@ -124,6 +135,8 @@ Dynamicchart.prototype.createJSON=function()
    
 }
 
+
+//create the chart
 Dynamicchart.prototype.createChart=function(){
     
     
@@ -133,9 +146,9 @@ Dynamicchart.prototype.createChart=function(){
         {
             return;
         }
-    var type = "pie2d"
     
-
+    //getting the chart type from the user
+        var type = "pie2d"
         var selected=that.typeselect.value;
         console.log("Selected  " + selected);
         
@@ -173,17 +186,21 @@ Dynamicchart.prototype.createChart=function(){
 });
 }
   
+//used to change the values of label and values dynamically
+//count is an extra parameter that is sent to change the existng labels
 Dynamicchart.prototype.updateLabel=function(inputlabel,inputvalue,count)
 {
      var that=this;
     
+    //count-1 represents the index of the label to be changed
     if(count)
         {
             that.labels[count-1] = inputlabel;
             that.values[count-1] = inputvalue;
         }
     else{
-   
+   //checking if labels of the corresponding label exists 
+   // create a new label and value   
     var index= that.labels.indexOf(inputlabel);
     if(index === -1)
         {
