@@ -39,7 +39,7 @@ Dynamicchart.prototype.createdata = function(){
       var that=this;
    // console.log(that);
   count++;    
-  console.log("click");  
+ // console.log("click");  
   var id = count;
     
   var div = document.createElement("DIV");
@@ -128,7 +128,7 @@ Dynamicchart.prototype.createJSON=function()
     },
         "data" : that.data
     };
-      console.log(that.chartType);
+    //  console.log(that.chartType);
     
     /**/
     that.createChart();
@@ -150,26 +150,26 @@ Dynamicchart.prototype.createChart=function(){
     //getting the chart type from the user
         var type = "pie2d"
         var selected=that.typeselect.value;
-        console.log("Selected  " + selected);
+      //  console.log("Selected  " + selected);
         
         if(selected === "Column")
             {
             type="column2d";
-                 console.log("column");
+                 //console.log("column");
             }
         else if(selected === "Bar")
             {
             type="bar2d";
-                console.log("bar");
+                //console.log("bar");
             }
         else if(selected === "Pie")
             {
             type = "pie2d";
-                console.log("pie");
+                //console.log("pie");
             }
         
        
-        console.log(selected === "bar");
+       // console.log(selected === "bar");
 
     
      FusionCharts.ready(function(){
